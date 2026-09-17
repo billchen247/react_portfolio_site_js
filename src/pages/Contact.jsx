@@ -48,7 +48,7 @@ export default function Contact() {
             <div>
               <dt>Email</dt>
               <dd>
-                <a href="mailto:hello@alexbennett.dev">hello@alexbennett.dev</a>
+                <a href="mailto:hello@billchen.dev">hello@billchen.dev</a>
               </dd>
             </div>
             <div>

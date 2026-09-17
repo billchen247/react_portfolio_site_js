@@ -34,7 +34,7 @@ export default function Logo({ size = 40, title = 'Bill Chen logo' }) {
         fontSize="22"
         fill="#0f1226"
       >
-        AB
+        BC
       </text>
     </svg>
   );
