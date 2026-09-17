@@ -70,3 +70,58 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      # Renders a clickable summary panel at the top of the workflow run page.
+      - name: Write deployment summary
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          {
+            echo "## 🚀 GitHub Pages deployment"
+            echo ""
+            echo "Live at: [${PAGE_URL}](${PAGE_URL})"
+            echo ""
+            echo "Deployed commit: \`${COMMIT_SHA}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Queries the Pages REST API for the resolved site settings (html_url,
+      # cname/custom-domain, https_enforced, status) and prints them as a
+      # table in the run summary. Handles the first-deploy case where the
+      # API returns 404 for a couple of seconds by treating failure as
+      # informational rather than fatal.
+      - name: Fetch Pages settings via API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          if ! gh api "repos/${REPO}/pages" > /tmp/pages.json 2> /tmp/pages.err; then
+            {
+              echo ""
+              echo "_Pages API not yet queryable — probably the very first deploy._"
+              echo ""
+              echo "\`\`\`"
+              cat /tmp/pages.err
+              echo "\`\`\`"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          HTML_URL=$(jq -r '.html_url // "(unknown)"' /tmp/pages.json)
+          CNAME=$(jq -r '.cname // "(none)"' /tmp/pages.json)
+          HTTPS=$(jq -r '.https_enforced // false' /tmp/pages.json)
+          STATUS=$(jq -r '.status // "(unknown)"' /tmp/pages.json)
+          SOURCE=$(jq -r '.build_type // "(unknown)"' /tmp/pages.json)
+
+          {
+            echo ""
+            echo "### Pages settings"
+            echo ""
+            echo "| Field | Value |"
+            echo "| --- | --- |"
+            echo "| html_url | ${HTML_URL} |"
+            echo "| custom domain (cname) | ${CNAME} |"
+            echo "| https_enforced | ${HTTPS} |"
+            echo "| status | ${STATUS} |"
+            echo "| build source | ${SOURCE} |"
+          } >> "$GITHUB_STEP_SUMMARY"
