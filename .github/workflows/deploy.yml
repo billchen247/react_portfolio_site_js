@@ -35,6 +35,17 @@ jobs:
 
       - name: Build production bundle
         run: npm run build
+      
+      - name: Test Netlify authentication
+        run: npx netlify-cli sites:list
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      
+      - name: Test Netlify
+        run: npx netlify-cli status
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       # Deploys `dist/` to Netlify. On pushes to main this becomes the live
       # production release; on pull requests it publishes a preview URL that
