@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Projects.jsx — the /projects page.
+// Author: Bill Chen
 //
 // Concepts introduced here:
 //   • Data-driven rendering: keep the list of projects as a plain JS array of

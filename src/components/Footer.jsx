@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Footer.jsx — the site-wide footer.
+// Author: Bill Chen
 //
 // Simplest form of a React component: no state, no props. Just a function
 // that returns JSX. If it stays this simple, you never need to reach for a

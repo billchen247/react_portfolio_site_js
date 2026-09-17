@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Education.jsx — the /education page.
+// Author: Bill Chen
 //
 // Concepts introduced here:
 //   • Deriving a value inside `.map()` before returning JSX. When the callback

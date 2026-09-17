@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Navbar.jsx — the sticky top navigation bar.
+// Author: Bill Chen
 //
 // Concepts introduced here:
 //   • useState — React "hook" for storing values that change over time.

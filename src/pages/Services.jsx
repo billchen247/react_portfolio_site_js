@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Services.jsx — the /services page.
+// Author: Bill Chen
 //
 // Structurally almost identical to Projects.jsx: a constant array of objects
 // mapped to card elements. The takeaway is that this list-of-cards pattern

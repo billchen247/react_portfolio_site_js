@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Home.jsx — the landing page ("/").
+// Author: Bill Chen
 //
 // Concepts introduced here:
 //   • useEffect — a hook that runs code AFTER render, useful for reacting to

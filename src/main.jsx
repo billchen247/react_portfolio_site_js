@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // main.jsx — the app's entry point.
+// Author: Bill Chen
 //
 // The browser loads index.html, which contains <div id="root"></div> and a
 // <script src="/src/main.jsx"> tag. Vite compiles this JSX file into plain

@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Logo.jsx — a small, self-contained "brand mark" component.
+// Author: Bill Chen
 //
 // SVG can be written directly inside JSX. The tags look like HTML but attribute
 // names are camelCased (e.g. `stroke-width` in HTML → `strokeWidth` in JSX).

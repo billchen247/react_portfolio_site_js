@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // About.jsx — the /about page.
+// Author: Bill Chen
 //
 // Concepts introduced here:
 //   • Importing an image as if it were a module. Vite (the build tool) rewrites

@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // App.jsx — the top-level "shell" component.
+// Author: Bill Chen
 //
 // This is the single React component that main.jsx renders. It defines the
 // layout that surrounds every page (Navbar on top, Footer on the bottom) and

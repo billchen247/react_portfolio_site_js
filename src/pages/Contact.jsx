@@ -1,5 +1,6 @@
 // -----------------------------------------------------------------------------
 // Contact.jsx — the /contact page and its form.
+// Author: Bill Chen
 //
 // Concepts introduced here:
 //   • Controlled inputs: each <input> has BOTH `value={...}` (React tells the
