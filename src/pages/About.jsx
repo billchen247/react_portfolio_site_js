@@ -34,12 +34,14 @@ export default function About() {
           </p>
 
           {/*
-            The PDF lives under /public so Vite serves it at the site root.
-            "download" triggers save-as; target=_blank opens preview in a new tab.
+            The PDF lives under /public. `import.meta.env.BASE_URL` prefixes
+            the deploy base so the link resolves correctly at `/` (Netlify)
+            and `/react_portfolio_site_js/` (GitHub Pages) alike.
+            `download` triggers save-as; target=_blank opens preview in a new tab.
           */}
           <a
             className="btn"
-            href="/resume.pdf"
+            href={`${import.meta.env.BASE_URL}resume.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             download
