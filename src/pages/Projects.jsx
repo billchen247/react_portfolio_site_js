@@ -1,9 +1,25 @@
+// -----------------------------------------------------------------------------
+// Projects.jsx — the /projects page.
+//
+// Concepts introduced here:
+//   • Data-driven rendering: keep the list of projects as a plain JS array of
+//     objects, then use `.map(...)` to turn each object into a card. When you
+//     want another project, add another object — no JSX changes required.
+//   • The `key` prop when rendering lists: React uses `key` to match items
+//     between renders (so it can update instead of re-creating them). Use a
+//     stable, unique value per item — never the array index if items can be
+//     reordered or filtered.
+//   • `loading="lazy"` on <img>: a browser hint to defer loading offscreen
+//     images. Cheap performance win with no code cost.
+// -----------------------------------------------------------------------------
 import projectDashboardImage from '../assets/project-dashboard.svg';
 import projectMobileImage from '../assets/project-mobile.svg';
 import projectApiImage from '../assets/project-api.svg';
 import './Projects.css';
 
 // Each entry drives one project card. Add a new object to add another project.
+// UPPER_SNAKE_CASE is a common convention for module-level constants that
+// never change after being defined.
 const PROJECTS = [
   {
     id: 'insight-dashboard',
@@ -44,6 +60,8 @@ export default function Projects() {
       </p>
 
       <div className="grid grid-3 projects-grid">
+        {/* `.map()` returns a new array — here, an array of <article> JSX
+            elements. React knows how to render an array of elements inline. */}
         {PROJECTS.map((project) => (
           <article key={project.id} className="card project-card">
             <img

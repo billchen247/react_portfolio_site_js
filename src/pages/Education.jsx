@@ -1,3 +1,15 @@
+// -----------------------------------------------------------------------------
+// Education.jsx — the /education page.
+//
+// Concepts introduced here:
+//   • Deriving a value inside `.map()` before returning JSX. When the callback
+//     needs a local variable, use a full function body with `return (...)`
+//     instead of the concise arrow form `(x) => (...)`.
+//   • Ternary expression `cond ? a : b` for picking between two values inline.
+//   • Semantic HTML: <ol> ("ordered list") is used because the timeline has a
+//     meaningful order (most recent first). Assistive tech announces it as a
+//     numbered list.
+// -----------------------------------------------------------------------------
 import './Education.css';
 
 // Chronological list, most recent first. Each item renders as a timeline row.
@@ -16,6 +28,7 @@ const QUALIFICATIONS = [
     institution: 'University of Waterloo',
     startYear: 2016,
     endYear: 2020,
+    // A leading backslash escapes the apostrophe so it doesn't end the string.
     detail: 'Dean\'s honour list. Capstone: real-time collaborative code editor.'
   },
   {
@@ -38,6 +51,7 @@ export default function Education() {
 
       <ol className="timeline">
         {QUALIFICATIONS.map((item) => {
+          // Because the callback has {} braces, we must `return` explicitly.
           // Show a single year for one-year events, otherwise show a range.
           const yearLabel =
             item.startYear === item.endYear

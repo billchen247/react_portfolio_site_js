@@ -1,3 +1,10 @@
+// -----------------------------------------------------------------------------
+// Services.jsx — the /services page.
+//
+// Structurally almost identical to Projects.jsx: a constant array of objects
+// mapped to card elements. The takeaway is that this list-of-cards pattern
+// scales to almost any "gallery" page in a small site.
+// -----------------------------------------------------------------------------
 import serviceProgrammingImage from '../assets/service-programming.svg';
 import serviceWebImage from '../assets/service-web.svg';
 import serviceMobileImage from '../assets/service-mobile.svg';
@@ -38,6 +45,8 @@ export default function Services() {
       <p className="lead">Areas I take on for freelance and contract work.</p>
 
       <div className="grid grid-3 services-grid">
+        {/* Same list-render pattern as Projects: `SERVICES.map(...)` returns
+            one <article> per service, keyed by a stable `id`. */}
         {SERVICES.map((service) => (
           <article key={service.id} className="card service-card">
             <img

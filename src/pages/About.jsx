@@ -1,3 +1,14 @@
+// -----------------------------------------------------------------------------
+// About.jsx — the /about page.
+//
+// Concepts introduced here:
+//   • Importing an image as if it were a module. Vite (the build tool) rewrites
+//     the import to the final asset URL and fingerprints it for cache-busting.
+//     That's why we can plug the imported value straight into <img src={...}>.
+//   • import.meta.env.BASE_URL — the deploy prefix (e.g. "/" locally,
+//     "/react_portfolio_site_js/" on GitHub Pages). Prepending it makes links
+//     to files in /public work no matter where the site is hosted.
+// -----------------------------------------------------------------------------
 import headshotImage from '../assets/headshot.svg';
 import './About.css';
 
@@ -7,6 +18,8 @@ export default function About() {
       <h1 className="section-title">About Me</h1>
 
       <div className="about-grid">
+        {/* alt text is required for accessibility — describe what the image
+            shows so screen-reader users get the same information. */}
         <img
           className="about-headshot"
           src={headshotImage}
@@ -34,10 +47,17 @@ export default function About() {
           </p>
 
           {/*
-            The PDF lives under /public. `import.meta.env.BASE_URL` prefixes
-            the deploy base so the link resolves correctly at `/` (Netlify)
-            and `/react_portfolio_site_js/` (GitHub Pages) alike.
-            `download` triggers save-as; target=_blank opens preview in a new tab.
+            The résumé PDF lives under /public. Anything in /public is copied
+            to the site root at build time (no import needed) — we just have
+            to build the correct URL to it.
+
+            `import.meta.env.BASE_URL` always ends with a slash, so simply
+            concatenating "resume.pdf" produces "/resume.pdf" on Netlify and
+            "/react_portfolio_site_js/resume.pdf" on GitHub Pages.
+
+            `target="_blank"` opens in a new tab; `rel="noopener noreferrer"`
+            is a security best-practice for external tabs; `download` hints to
+            the browser that this should be saved-as instead of previewed.
           */}
           <a
             className="btn"
