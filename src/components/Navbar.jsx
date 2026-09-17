@@ -24,7 +24,7 @@ export default function Navbar() {
       <div className="navbar-inner">
         <Link to="/" className="brand" onClick={closeMobileMenu}>
           <Logo size={38} />
-          <span className="brand-name">Alex Bennett</span>
+          <span className="brand-name">Bill Chen</span>
         </Link>
 
         <button

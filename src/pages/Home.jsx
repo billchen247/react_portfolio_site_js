@@ -42,7 +42,7 @@ export default function Home() {
       <div className="home-hero">
         <div className="home-hero-copy">
           <p className="eyebrow">Welcome</p>
-          <h1>Hi, I'm Alex Bennett.</h1>
+          <h1>Hi, I'm Bill Chen.</h1>
           <p className="lead">
             I design and build fast, accessible web experiences that turn ideas into
             products people enjoy using. Take a look around — the tour starts on the

@@ -1,6 +1,6 @@
-// Custom brand mark: hexagon shape with the initials "AB".
+// Custom brand mark: hexagon shape with the initials "BC".
 // Not sourced from any third-party brand — drawn inline with SVG primitives.
-export default function Logo({ size = 40, title = 'Alex Bennett logo' }) {
+export default function Logo({ size = 40, title = 'Bill Chen logo' }) {
   return (
     <svg
       role="img"

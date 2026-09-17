@@ -10,13 +10,13 @@ export default function About() {
         <img
           className="about-headshot"
           src={headshotImage}
-          alt="Portrait of Alex Bennett"
+          alt="Portrait of Bill Chen"
           width={280}
           height={280}
         />
 
         <div>
-          <h2 className="about-name">Alex Bennett</h2>
+          <h2 className="about-name">Bill Chen</h2>
           <p className="about-tagline">Software developer · Web + mobile</p>
 
           <p>

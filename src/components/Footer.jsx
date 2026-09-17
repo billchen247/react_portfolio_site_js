@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer-inner">
-        <span>© {currentYear} Alex Bennett. All rights reserved.</span>
+        <span>© {currentYear} Bill Chen. All rights reserved.</span>
         <span className="site-footer-meta">Built with React + Vite.</span>
       </div>
     </footer>
